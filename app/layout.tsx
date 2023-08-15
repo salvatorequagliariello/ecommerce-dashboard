@@ -6,8 +6,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Timeless Admin Dashboard',
-  description: 'Admin Dashboard for Timeless E-Commerce',
+  title: 'Timeless Admin Dashboard'
 }
 
 export default function RootLayout({
