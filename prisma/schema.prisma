@@ -18,6 +18,7 @@ model Store {
   billboards    Billboard[] @relation("StoreToBillboard")
   categories    Category[] @relation("StoreToCategory")
   cases         Case[] @relation("StoreToCase")
+  bracelets     Bracelet[] @relation("StoreToBracelet")
   createdAt     DateTime @default(now())
   updateAt      DateTime @updatedAt
 }
@@ -53,6 +54,18 @@ model Case {
   id            String @id @default(uuid())
   storeId       String
   store         Store @relation("StoreToCase", fields: [storeId], references: [id])
+  name          String
+  value         String
+  createdAt     DateTime @default(now())
+  updateAt      DateTime @updatedAt
+
+  @@index([storeId])
+}
+
+model Bracelet {
+  id            String @id @default(uuid())
+  storeId       String
+  store         Store @relation("StoreToBracelet", fields: [storeId], references: [id])
   name          String
   value         String
   createdAt     DateTime @default(now())

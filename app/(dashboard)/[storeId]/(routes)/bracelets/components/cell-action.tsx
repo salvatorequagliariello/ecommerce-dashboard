@@ -1,7 +1,7 @@
 "use client";
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { CasesColumn } from "./columns";
+import { BraceletsColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import toast from "react-hot-toast";
@@ -11,7 +11,7 @@ import axios from "axios";
 import { AlertModal } from "@/components/modals/alert-modal";
 
 interface CellActionProps {
-    data: CasesColumn;
+    data: BraceletsColumn;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({
@@ -30,11 +30,11 @@ export const CellAction: React.FC<CellActionProps> = ({
     const onDelete = async () => {
         try {
             setLoading(true);
-            await axios.delete(`/api/${params.storeId}/cases/${data.id}`);
+            await axios.delete(`/api/${params.storeId}/bracelets/${data.id}`);
             router.refresh();
-            toast.success("Case deleted!");
+            toast.success("Bracelet deleted!");
         } catch (error) {
-            toast.error("Make sure you removed all products using this case first.")
+            toast.error("Make sure you removed all products using this bracelet first.")
         } finally {
             setLoading(false);
             setOpen(false);

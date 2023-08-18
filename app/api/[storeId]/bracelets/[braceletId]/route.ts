@@ -4,27 +4,27 @@ import { NextResponse } from "next/server";
 
 export async function GET (
     _req: Request,
-    { params }: { params: { caseId: string } }
+    { params }: { params: { braceletId: string } }
 ) {
     try {
-        if (!params.caseId) return new NextResponse("Case ID is required", { status: 400 });
+        if (!params.braceletId) return new NextResponse("Bracelet ID is required", { status: 400 });
 
-        const watchCase = await prismadb.case.findUnique({
+        const bracelet = await prismadb.bracelet.findUnique({
             where: {
-                id: params.caseId,
+                id: params.braceletId,
             }, 
         });
 
-        return NextResponse.json(watchCase);
+        return NextResponse.json(bracelet);
     } catch (error) {
-        console.log("[CASE_GET]", error);
+        console.log("[BRACELET_GET]", error);
         return new NextResponse("Internal error", { status: 500 });
     }
 };
 
 export async function PATCH (
     req: Request,
-    { params }: { params: { storeId: string, caseId: string } }
+    { params }: { params: { storeId: string, braceletId: string } }
 ) {
     try {
         const { userId } = auth();
@@ -34,7 +34,7 @@ export async function PATCH (
         if (!userId) return new NextResponse("Unauthenticated", { status: 401 });
         if (!name) return new NextResponse("Name is required", { status: 400 });
         if (!value) return new NextResponse("Value is required", { status: 400 });
-        if (!params.caseId) return new NextResponse("Case ID is required", { status: 400 });
+        if (!params.braceletId) return new NextResponse("Bracelet ID is required", { status: 400 });
         
         const storeByUserId = await prismadb.store.findFirst({
             where: {
@@ -45,9 +45,9 @@ export async function PATCH (
 
         if (!storeByUserId) return new NextResponse("Unauthorized", { status: 403 });
 
-        const watchCase = await prismadb.case.updateMany({
+        const bracelet = await prismadb.bracelet.updateMany({
             where: {
-                id: params.caseId,
+                id: params.braceletId,
             },
             data: {
                 name,
@@ -55,22 +55,22 @@ export async function PATCH (
             }       
         });
 
-        return NextResponse.json(watchCase);
+        return NextResponse.json(bracelet);
     } catch (error) {
-        console.log("[CASE_PATCH]", error);
+        console.log("[BRACELET_PATCH]", error);
         return new NextResponse("Internal error", { status: 500 });
     }
 };
 
 export async function DELETE (
     _req: Request,
-    { params }: { params: { storeId: string, caseId: string } }
+    { params }: { params: { storeId: string, braceletId: string } }
 ) {
     try {
         const { userId } = auth();
     
         if (!userId) return new NextResponse("Unauthenticated", { status: 401 });
-        if (!params.caseId) return new NextResponse("Case ID is required", { status: 400 });
+        if (!params.braceletId) return new NextResponse("Bracelet ID is required", { status: 400 });
 
         const storeByUserId = await prismadb.store.findFirst({
             where: {
@@ -81,15 +81,15 @@ export async function DELETE (
 
         if (!storeByUserId) return new NextResponse("Unauthorized", { status: 403 });
         
-        const watchCase = await prismadb.case.deleteMany({
+        const bracelet = await prismadb.bracelet.deleteMany({
             where: {
-                id: params.caseId,
+                id: params.braceletId,
             }, 
         });
 
-        return NextResponse.json(watchCase);
+        return NextResponse.json(bracelet);
     } catch (error) {
-        console.log("[CASE_DELETE]", error);
+        console.log("[BRACELET_DELETE]", error);
         return new NextResponse("Internal error", { status: 500 });
     }
 };
