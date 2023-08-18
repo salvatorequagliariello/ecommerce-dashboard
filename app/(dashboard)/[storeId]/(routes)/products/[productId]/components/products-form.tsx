@@ -1,6 +1,6 @@
 "use client";
 
-import { Image, Product } from "@prisma/client";
+import { Bracelet, Case, Category, Image, Movement, Product } from "@prisma/client";
 import React, { useState } from "react";
 import { Heading } from "@/components/ui/heading";
 import { Button } from "@/components/ui/button";
@@ -17,6 +17,8 @@ import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "@/components/modals/alert-modal";
 import { useOrigin } from "@/hooks/use-origin";
 import ImageUpload from "@/components/ui/image-upload";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = zod.object({
     name: zod.string().min(1),
@@ -39,10 +41,18 @@ interface ProductsFormProps {
     initialData: Product & {
         images: Image[]
     } | null;
+    categories: Category[];
+    cases: Case[];
+    bracelets: Bracelet[];
+    movements: Movement[];
 };
 
 export const ProductsForm: React.FC<ProductsFormProps> = ({
-    initialData
+    initialData,
+    categories,
+    cases,
+    bracelets,
+    movements
 }) => {
     const params = useParams();
     const router = useRouter();
@@ -130,16 +140,16 @@ export const ProductsForm: React.FC<ProductsFormProps> = ({
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
                     <FormField 
                             control={form.control} 
-                            name="imageUrl" 
+                            name="images" 
                             render={({field}) => (
                                 <FormItem>
-                                    <FormLabel>Background Image</FormLabel>
+                                    <FormLabel>Images</FormLabel>
                                     <FormControl>
                                         <ImageUpload 
-                                        value={field.value ? [field.value] : []}
+                                        value={field.value.map((image => image.url))}
                                         disabled={loading}
-                                        onChange={(url) => field.onChange(url)}
-                                        onRemove={() => field.onChange("")}
+                                        onChange={(url) => field.onChange([...field.value, { url }])}
+                                        onRemove={(url) => field.onChange([...field.value.filter((current => current.url !== url))])}
                                         />
                                     </FormControl>
                                     <FormMessage />
@@ -149,18 +159,166 @@ export const ProductsForm: React.FC<ProductsFormProps> = ({
                     <div className="grid grid-cols-3 gap-8">
                         <FormField 
                         control={form.control} 
-                        name="label" 
+                        name="name" 
                         render={({field}) => (
                             <FormItem>
-                                <FormLabel>Label</FormLabel>
+                                <FormLabel>Name</FormLabel>
                                 <FormControl>
-                                    <Input disabled={loading} placeholder="Billboard Label" {...field}/>
+                                    <Input disabled={loading} placeholder="Product name" {...field}/>
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
                         />
+                        <FormField 
+                        control={form.control} 
+                        name="price" 
+                        render={({field}) => (
+                            <FormItem>
+                                <FormLabel>Price</FormLabel>
+                                <FormControl>
+                                    <Input type="number" disabled={loading} placeholder="Product price" {...field}/>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                        <FormField 
+                        control={form.control} 
+                        name="categoryId" 
+                        render={({field}) => (
+                            <FormItem>
+                                <FormLabel>Category</FormLabel>
+                                <Select disabled={loading} onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
+                                    <FormControl>
+                                        <SelectTrigger>
+                                            <SelectValue defaultValue={field.value} placeholder="Select a category" />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                        {categories.map(category => (
+                                            <SelectItem key={category.id} value={category.id}>
+                                                {category.name}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                </Select>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                        <FormField 
+                        control={form.control} 
+                        name="caseId" 
+                        render={({field}) => (
+                            <FormItem>
+                                <FormLabel>Case</FormLabel>
+                                <Select disabled={loading} onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
+                                    <FormControl>
+                                        <SelectTrigger>
+                                            <SelectValue  defaultValue={field.value} placeholder="Select a case" />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                        {cases.map(watchCase => (
+                                            <SelectItem key={watchCase.id} value={watchCase.id}>
+                                                {watchCase.name}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                </Select>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                        <FormField 
+                        control={form.control} 
+                        name="braceletId" 
+                        render={({field}) => (
+                            <FormItem>
+                                <FormLabel>Bracelet</FormLabel>
+                                <Select disabled={loading} onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
+                                    <FormControl>
+                                        <SelectTrigger>
+                                            <SelectValue  defaultValue={field.value} placeholder="Select a bracelet" />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                        {bracelets.map(bracelet => (
+                                            <SelectItem key={bracelet.id} value={bracelet.id}>
+                                                {bracelet.name}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                </Select>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                        <FormField 
+                        control={form.control} 
+                        name="movementId" 
+                        render={({field}) => (
+                            <FormItem>
+                                <FormLabel>Movement type</FormLabel>
+                                <Select disabled={loading} onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
+                                    <FormControl>
+                                        <SelectTrigger>
+                                            <SelectValue  defaultValue={field.value} placeholder="Select a movement type" />
+                                        </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                        {movements.map(movemenet => (
+                                            <SelectItem key={movemenet.id} value={movemenet.id}>
+                                                {movemenet.name}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                </Select>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                        />
                     </div>
+                        <FormField 
+                        control={form.control} 
+                        name="description" 
+                        render={({field}) => (
+                            <FormItem>
+                                <FormLabel>Product description</FormLabel>
+                                <FormControl>
+                                    <Textarea disabled={loading} placeholder="Enter a description..." {...field} className="resize-none h-[200px]"/>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                        <FormField 
+                        control={form.control} 
+                        name="caseDescription" 
+                        render={({field}) => (
+                            <FormItem>
+                                <FormLabel>Case description</FormLabel>
+                                <FormControl>
+                                    <Textarea disabled={loading} placeholder="Enter a description..." {...field} className="resize-none h-[200px]"/>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                        <FormField 
+                        control={form.control} 
+                        name="features" 
+                        render={({field}) => (
+                            <FormItem>
+                                <FormLabel>Product features</FormLabel>
+                                <FormControl>
+                                    <Textarea disabled={loading} placeholder="Enter a description..." {...field} className="resize-none h-[200px]"/>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                        />
                     <Button disabled={loading} className="ml-auto" type="submit">{action}</Button>
                 </form>
             </Form>
