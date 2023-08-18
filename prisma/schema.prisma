@@ -19,6 +19,7 @@ model Store {
   categories    Category[] @relation("StoreToCategory")
   cases         Case[] @relation("StoreToCase")
   bracelets     Bracelet[] @relation("StoreToBracelet")
+  movements     Movement[] @relation("StoreToMovement")
   createdAt     DateTime @default(now())
   updateAt      DateTime @updatedAt
 }
@@ -73,3 +74,19 @@ model Bracelet {
 
   @@index([storeId])
 }
+
+model Movement {
+  id            String @id @default(uuid())
+  storeId       String
+  store         Store @relation("StoreToMovement", fields: [storeId], references: [id])
+  name          String
+  value         String
+  createdAt     DateTime @default(now())
+  updateAt      DateTime @updatedAt
+
+  @@index([storeId])
+}
+
+
+
+
