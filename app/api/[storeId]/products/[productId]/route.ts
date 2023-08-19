@@ -3,7 +3,7 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
 export async function GET (
-    _req: Request,
+    req: Request,
     { params }: { params: { productId: string } }
 ) {
     try {
@@ -36,7 +36,7 @@ export async function PATCH (
     try {
         const { userId } = auth();
         const body = await req.json();
-        const { 
+        const {
             name,
             images,
             price,
@@ -50,7 +50,7 @@ export async function PATCH (
             isFeatured,
             isArchived
          } = body;
-    
+
         if (!userId) return new NextResponse("Unauthenticated.", { status: 401 });
         if (!name) return new NextResponse("Name is required!", { status: 400 });
         if (!images || !images.length) return new NextResponse("Images are required!", { status: 400 })
@@ -75,11 +75,14 @@ export async function PATCH (
 
         await prismadb.product.update({
             where: {
-                id: params.productId,
+                id: params.productId
             },
             data: {
                 name,
                 price,
+                images: {
+                    deleteMany: {}
+                },
                 categoryId,
                 caseId,
                 braceletId,
@@ -88,17 +91,13 @@ export async function PATCH (
                 caseDescription,
                 features,
                 isFeatured,
-                isArchived,
-                storeId: params.storeId,
-                images: {
-                    deleteMany: {}
-                }
-            } 
+                isArchived
+            }
         });
 
         const product = await prismadb.product.update({
             where: {
-                id: params.productId,    
+                id: params.productId
             },
             data: {
                 images: {
@@ -134,6 +133,9 @@ export async function DELETE (
                 userId
             }
         })
+
+
+        console.log(params.productId)
 
         if (!storeByUserId) return new NextResponse("Unauthorized", { status: 403 });
         
