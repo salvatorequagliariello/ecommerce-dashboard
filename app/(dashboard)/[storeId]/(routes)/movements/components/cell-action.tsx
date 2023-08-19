@@ -1,7 +1,7 @@
 "use client";
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { BraceletsColumn } from "./columns";
+import { MovementsColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import toast from "react-hot-toast";
@@ -11,7 +11,7 @@ import axios from "axios";
 import { AlertModal } from "@/components/modals/alert-modal";
 
 interface CellActionProps {
-    data: BraceletsColumn;
+    data: MovementsColumn;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({
@@ -30,11 +30,11 @@ export const CellAction: React.FC<CellActionProps> = ({
     const onDelete = async () => {
         try {
             setLoading(true);
-            await axios.delete(`/api/${params.storeId}/bracelets/${data.id}`);
+            await axios.delete(`/api/${params.storeId}/movements/${data.id}`);
             router.refresh();
-            toast.success("Bracelet deleted!");
+            toast.success("Movement type deleted!");
         } catch (error) {
-            toast.error("Make sure you removed all products using this bracelet first.")
+            toast.error("Make sure you removed all products using this movement type first.")
         } finally {
             setLoading(false);
             setOpen(false);
@@ -64,7 +64,7 @@ export const CellAction: React.FC<CellActionProps> = ({
                         <Copy className="mr-2 w-4 h-4"/>
                         Copy ID
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/bracelets/${data.id}`)}>
+                    <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/movements/${data.id}`)}>
                         <Edit className="mr-2 w-4 h-4"/>
                         Update
                     </DropdownMenuItem>
