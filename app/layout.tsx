@@ -8,6 +8,8 @@ import { ToasterProvider } from '@/providers/toast-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
+
 export const metadata: Metadata = {
   title: 'Timeless Admin Dashboard'
 }
@@ -23,6 +25,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <head>
+          <link rel='icon' href='/favicon.ico' sizes='any'/>
+        </head>
         <body className={inter.className}>
           <ToasterProvider />
           <ModalProvider />
