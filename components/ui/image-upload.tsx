@@ -41,7 +41,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                                 <Trash className="h-4 w-4" />
                             </Button>
                         </div>
-                        <Image fill className="object-cover" alt="Billboard uploaded image" src={url} />
+                        <Image fill className="object-cover" alt="Uploaded image" src={url} />
                     </div>
                 ))}
             </div>

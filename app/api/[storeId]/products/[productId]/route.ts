@@ -80,9 +80,6 @@ export async function PATCH (
             data: {
                 name,
                 price,
-                images: {
-                    deleteMany: {}
-                },
                 categoryId,
                 caseId,
                 braceletId,
@@ -101,6 +98,7 @@ export async function PATCH (
             },
             data: {
                 images: {
+                    deleteMany: {},
                     createMany: {
                         data: [
                             ...images.map((image: { url: string }) => image)
