@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 export const metadata: Metadata = {
-  title: 'Timeless Admin Dashboard'
+  title: 'E-commerce Admin Dashboard'
 }
 
 export default function RootLayout({
