@@ -62,8 +62,8 @@ export function DataTable<TData, TValue>({
             className="max-w-sm"
             />
         </div>
-        <div className="rounded-md border m-0 w-full">
-        <Table className="w-full">
+        <div className="rounded-md border m-0">
+        <Table className="relative">
             <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow key={headerGroup.id}>
@@ -90,7 +90,7 @@ export function DataTable<TData, TValue>({
                         data-state={row.getIsSelected() && "selected"}
                         >
                         {row.getVisibleCells().map((cell) => (
-                            <TableCell key={cell.id} className="w-full max-[338px]:p-3 m-0">
+                            <TableCell key={cell.id} className="max-[338px]:p-3 m-0">
                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                         </TableCell>
                         ))}
