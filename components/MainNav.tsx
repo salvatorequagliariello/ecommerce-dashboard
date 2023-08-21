@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { useParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export function MainNav ({
     className,
@@ -82,39 +82,20 @@ export function MainNav ({
 <div className="flex w-full place-content-end">
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
-          <div
-            className="HAMBURGER-ICON space-y-2"
-            onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
-          >
-            <Menu color="black" className="animate-pulse w-10 h-10"/>
-          </div>
+            <Menu color="black" className="HAMBURGER-ICON space-y-2 animate-pulse w-8 h-8" onClick={() => setIsNavOpen((prev) => !prev)}/>
 
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}> 
-            <div
-              className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
-              onClick={() => setIsNavOpen(false)} 
-            >
-              <svg
-                className="h-8 w-8 text-gray-600"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </div>
+          <div className="w-full border-b flex h-16 items-center place-content-end px-4">
+            <X className="CROSS-ICON animate-pulse w-8 h-8" onClick={() => setIsNavOpen(false)} />
+          </div>
             
-            <ul className="MENU-LINK-MOBILE-OPEN flex flex-col justify-left min-h-[250px]">
+            <ul className="MENU-LINK-MOBILE-OPEN flex-1 flex flex-col mt-4 w-full pl-6">
                 {routes.map((route) => (
                         <Link 
                         key={route.href} 
                         href={route.href}
                         onClick={() => setIsNavOpen((prev) => !prev)}
-                        className={cn("text-sm font-medium transition-colors hover:text-primary",
+                        className={cn("text-xl font-medium transition-colors hover:text-primary my-1",
                         route.active ? "text-black dark:text-white" : "text-muted-foreground" 
                         )}
                         >
