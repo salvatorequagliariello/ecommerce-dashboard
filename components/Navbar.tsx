@@ -16,10 +16,10 @@ const Navbar = async () => {
     });
 
     return (
-        <div className="border-b">
-            <div className="flex h-16 items-center px-4">
+        <div className="border-b w-full">
+            <div className="flex h-16 items-center px-4 w-full">
                 <StoreSwitcher items={stores} />
-                <MainNav className="mx-6"/>
+                <MainNav className="mx-6 w-full"/>
                 <div className="ml-auto flex items-center space-x-4">
                     <UserButton afterSignOutUrl="/"/>
                 </div>

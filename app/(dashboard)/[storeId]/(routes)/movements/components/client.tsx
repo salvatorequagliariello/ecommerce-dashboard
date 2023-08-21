@@ -21,7 +21,7 @@ export const MovementsClient: React.FC<MovementsClientProps> = ({
 
     return (
         <>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-y-4 min-[500px]:flex-row min-[500px]:items-center min-[500px]:justify-between">
                 <Heading 
                 title={`Movement types (${data.length})`}
                 description="Manage movement types for your store"
