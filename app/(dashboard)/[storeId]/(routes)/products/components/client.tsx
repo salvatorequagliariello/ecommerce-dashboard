@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Plus } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { ProductsColumns, columns } from "./columns";
-import { DataTable } from "@/components/ui/data-table";
+import { ProductsDataTable } from "@/components/ui/products-data-table";
 import { ApiList } from "@/components/ui/api-list";
 
 interface ProductsClientProps {
@@ -21,7 +21,7 @@ export const ProductsClient: React.FC<ProductsClientProps> = ({
 
     return (
         <>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-y-4 min-[500px]:flex-row min-[500px]:items-center min-[500px]:justify-between">
                 <Heading 
                 title={`Products (${data.length})`}
                 description="Manage products for your store"
@@ -32,7 +32,7 @@ export const ProductsClient: React.FC<ProductsClientProps> = ({
                 </Button>
             </div>
             <Separator />
-            <DataTable searchKey="name" columns={columns} data={data} />
+            <ProductsDataTable searchKey="name" columns={columns} data={data} />
             <Heading title="API" description="API calls for Products"  />
             <Separator />
             <ApiList entityName="products" entityIdName="productId" />

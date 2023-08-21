@@ -29,7 +29,7 @@ interface DataTableProps<TData, TValue> {
   searchKey: string
 }
 
-export function DataTable<TData, TValue>({
+export function ProductsDataTable<TData, TValue>({
   columns,
   data,
   searchKey
