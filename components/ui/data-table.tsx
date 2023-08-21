@@ -62,7 +62,7 @@ export function DataTable<TData, TValue>({
             className="max-w-sm"
             />
         </div>
-        <div className="rounded-md border">
+        <div className="rounded-md border m-0 w-full">
         <Table>
             <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -86,15 +86,15 @@ export function DataTable<TData, TValue>({
             {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
                     <TableRow
-                    key={row.id}
-                    data-state={row.getIsSelected() && "selected"}
-                    >
-                    {row.getVisibleCells().map((cell) => (
-                        <TableCell key={cell.id}>
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </TableCell>
-                    ))}
-                </TableRow>
+                        key={row.id}
+                        data-state={row.getIsSelected() && "selected"}
+                        >
+                        {row.getVisibleCells().map((cell) => (
+                            <TableCell key={cell.id} className="w-full max-[338px]:p-3 m-0">
+                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                        </TableCell>
+                        ))}
+                    </TableRow>
                 ))
                 ) : (
                     <TableRow>
@@ -106,7 +106,7 @@ export function DataTable<TData, TValue>({
             </TableBody>
         </Table>
         </div>
-        <div className="flex items-center justify-end space-x-2 py-4">
+        {/* <div className="flex items-center justify-end space-x-2 py-4">
             <Button
             variant="outline"
             size="sm"
@@ -123,7 +123,7 @@ export function DataTable<TData, TValue>({
             >
             Next
             </Button>
-        </div>
+        </div>  */}
     </div>
   )
 }
