@@ -75,6 +75,7 @@ const corsHeaders = {
         orderId: order.id
       },
     });
+    
   
     return NextResponse.json({ url: session.url }, {
       headers: corsHeaders
