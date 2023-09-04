@@ -82,9 +82,9 @@ export function MainNav ({
 <div className="flex w-full place-content-end">
     <nav>
         <section className="MOBILE-MENU flex lg:hidden">
-            <Menu className="HAMBURGER-ICON space-y-1 animate-pulse w-8 h-8" onClick={() => setIsNavOpen(prev => !prev)}/>
+            <Menu className="HAMBURGER-ICON space-y-1 animate-pulse w-8 h-8 cursor-pointer" onClick={() => setIsNavOpen(prev => !prev)}/>
 
-            <div className={isNavOpen ? "hidden" : "block absolute top-0 left-0 w-full h-screen bg-cover z-10 bg-white dark:bg-gray-950"}> 
+            <div className={!isNavOpen ? "hidden" : "block absolute top-0 left-0 w-full h-screen bg-cover z-10 bg-white dark:bg-gray-950"}> 
                 <div className="w-full border-b flex h-16 items-center place-content-end px-4">
                     <button onClick={() => setIsNavOpen(prev => !prev)}>
                         <X className="animate-pulse w-8 h-8 z-20" />
