@@ -80,55 +80,35 @@ export function MainNav ({
 
 
 <div className="flex w-full place-content-end">
-      <nav>
+    <nav>
         <section className="MOBILE-MENU flex lg:hidden">
-            <Menu color="black" className="HAMBURGER-ICON space-y-2 animate-pulse w-8 h-8" onClick={() => setIsNavOpen((prev) => !prev)}/>
+            <Menu className="HAMBURGER-ICON space-y-1 animate-pulse w-8 h-8" onClick={() => setIsNavOpen(prev => !prev)}/>
 
-          <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}> 
-          <div className="w-full border-b flex h-16 items-center place-content-end px-4">
-            <X className="CROSS-ICON animate-pulse w-8 h-8" onClick={() => setIsNavOpen(false)} />
-          </div>
-            
-            <ul className="MENU-LINK-MOBILE-OPEN flex-1 flex flex-col mt-4 w-full pl-6">
-                {routes.map((route) => (
-                        <Link 
-                        key={route.href} 
-                        href={route.href}
-                        onClick={() => setIsNavOpen((prev) => !prev)}
-                        className={cn("text-xl font-medium transition-colors hover:text-primary my-1",
-                        route.active ? "text-black dark:text-white" : "text-muted-foreground" 
-                        )}
-                        >
-                            {route.label}
-                        </Link>
-                    ))}
-            </ul>
-          </div>
+            <div className={isNavOpen ? "hidden" : "block absolute top-0 left-0 w-full h-screen bg-cover z-10 bg-white dark:bg-gray-950"}> 
+                <div className="w-full border-b flex h-16 items-center place-content-end px-4">
+                    <button onClick={() => setIsNavOpen(prev => !prev)}>
+                        <X className="animate-pulse w-8 h-8 z-20" />
+                    </button>
+                </div>
+                
+                    <ul className="flex-1 flex flex-col mt-4 w-full pl-6 z-10">
+                        {routes.map((route) => (
+                                <Link 
+                                key={route.href} 
+                                href={route.href}
+                                onClick={() => setIsNavOpen(prev => !prev)}
+                                className={cn("text-xl font-medium transition-colors hover:text-primary my-1",
+                                route.active ? "text-black dark:text-white" : "text-muted-foreground" 
+                                )}
+                                >
+                                    {route.label}
+                                </Link>
+                            ))}
+                    </ul>
+            </div>
         </section>
-      </nav>
-      <style>{`
-      .hideMenuNav {
-        display: none;
-      }
-      .showMenuNav {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        background: white;
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-      }
-    `}</style>
-    </div>
-
-
-
-        </nav>
+    </nav>
+</div>
+</nav>
     );
 };
