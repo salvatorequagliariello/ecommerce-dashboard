@@ -25,5 +25,8 @@ A complete and fully functional CMS with a user-friendly interface that will all
 <br>
 
 ## Overview
-Built using mainly React and NextJS, this user-friendly CMS will allow you to control and manage multiple stores with a single account.
-<br>
+Built using mainly React and NextJS, this user-friendly CMS will allow you to control and manage multiple stores with a single account through a sleek and modern UI. All you have to do to start using it is create an account and connect your E-Commerce Front-end to it through APIs.
+
+![Schermata 2023-11-30 alle 13 45 30](https://github.com/salvatorequagliariello/ecommerce-dashboard/assets/109867120/cbc231a9-8a84-41c9-bf28-e1bd197ee609)
+
+The authentication of this CMS relies on [Clerk](https://clerk.com/), a powerful and secure authentication and user management system.
