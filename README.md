@@ -28,7 +28,7 @@ A complete and fully functional CMS with a user-friendly interface that will all
 <br>
 
 ## Overview
-Built using mainly React and NextJS and wrote in Typescript, this user-friendly and responsive CMS will allow you to control and manage multiple stores with a single account through a sleek and modern UI. All you have to do to start using it is create an account and connect your E-Commerce Front-end to it through APIs.
+Built using mainly React and NextJS and written in Typescript, this user-friendly and responsive CMS will allow you to control and manage multiple stores with a single account through a sleek and modern UI. All you have to do to start using it is create an account and connect your E-Commerce Front-end to it through APIs.
 
 The authentication for the web-app relies on [Clerk](https://clerk.com/), a powerful and secure authentication and user management system, while its UI is the combined result of [TailwindCSS](https://tailwindcss.com/) and [shadcn/ui](https://ui.shadcn.com/) a collection of components built on top of Radix UI and Tailwind CSS. The entire web-app has been designed to specifically manage wristwatch E-commerces, but can be easily refactored to be able to manage any kind of E-shop.
 
