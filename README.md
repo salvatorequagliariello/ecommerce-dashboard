@@ -2,12 +2,14 @@
   E-commerce CMS 📟
 </h1>
 A complete and fully functional CMS with a user-friendly interface that will allow you to control multiple stores and manage products, categories, billboards and payments.
+
 <br>
 
 ## Table of Contents  
 -  [Tech Stack](https://github.com/salvatorequagliariello/ecommerce-dashboard#tech-stack)
 -  [Overview](https://github.com/salvatorequagliariello/lotto-game#more-about-the-project-floppy_disk)
 -  [Features](https://github.com/salvatorequagliariello/lotto-game#more-about-the-project-floppy_disk)
+-  [Screenshots](https://github.com/salvatorequagliariello/lotto-game#more-about-the-project-floppy_disk)
 
 <br>
 
@@ -26,7 +28,7 @@ A complete and fully functional CMS with a user-friendly interface that will all
 <br>
 
 ## Overview
-Built using mainly React and NextJS, this user-friendly and responsive CMS will allow you to control and manage multiple stores with a single account through a sleek and modern UI. All you have to do to start using it is create an account and connect your E-Commerce Front-end to it through APIs.
+Built using mainly React and NextJS and wrote in Typescript, this user-friendly and responsive CMS will allow you to control and manage multiple stores with a single account through a sleek and modern UI. All you have to do to start using it is create an account and connect your E-Commerce Front-end to it through APIs.
 
 The authentication for the web-app relies on [Clerk](https://clerk.com/), a powerful and secure authentication and user management system, while its UI is the combined result of [TailwindCSS](https://tailwindcss.com/) and [shadcn/ui](https://ui.shadcn.com/) a collection of components built on top of Radix UI and Tailwind CSS. The entire web-app has been designed to specifically manage wristwatch E-commerces, but can be easily refactored to be able to manage any kind of E-shop.
 
@@ -37,4 +39,16 @@ All the payments and sales details are provided by the Stripe API.
 <br>
 
 ## Features
-- 
+- Manage multiple stores with a single account
+- Fully responsive
+- Stripe integration for payments reports and details
+- Light/Dark mode
+- Serverless database
+- Easy to scale or refactor
+
+<br>
+
+## Screenshots
+![Nuovo progetto](https://github.com/salvatorequagliariello/ecommerce-dashboard/assets/109867120/5264e383-6826-4a11-8c94-3de58ed80119)
+
+
