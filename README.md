@@ -49,6 +49,7 @@ All the payments and sales details are provided by the Stripe API.
 <br>
 
 ## Screenshots
-![Nuovo progetto](https://github.com/salvatorequagliariello/ecommerce-dashboard/assets/109867120/5264e383-6826-4a11-8c94-3de58ed80119)
+![Nuovo progetto (1)](https://github.com/salvatorequagliariello/ecommerce-dashboard/assets/109867120/8c31723e-354a-45bc-be73-b22bc7216661)
+![Nuovo progetto](https://github.com/salvatorequagliariello/ecommerce-dashboard/assets/109867120/6fb255c9-7e27-47ca-aa11-e20e0af3bdad)
 
 
