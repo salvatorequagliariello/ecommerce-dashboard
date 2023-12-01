@@ -6,7 +6,7 @@ A complete and fully functional CMS with a user-friendly interface that will all
 <br>
 
 ## Table of Contents  
--  [Tech Stack](https://github.com/salvatorequagliariello/ecommerce-dashboard#tech-stack)
+-  [Tech Stack](https://github.com/salvatorequagliariello/ecommerce-dashboard/blob/main/README.md#tech-stack)
 -  [Overview](https://github.com/salvatorequagliariello/ecommerce-dashboard/blob/main/README.md#overview)
 -  [Features](https://github.com/salvatorequagliariello/ecommerce-dashboard/blob/main/README.md#features)
 -  [Screenshots](https://github.com/salvatorequagliariello/ecommerce-dashboard/blob/main/README.md#screenshots)
