@@ -50,6 +50,10 @@ All the payments and sales details are provided by the Stripe API.
 
 ## Screenshots
 ![Nuovo progetto (1)](https://github.com/salvatorequagliariello/ecommerce-dashboard/assets/109867120/8c31723e-354a-45bc-be73-b22bc7216661)
-![Nuovo progetto](https://github.com/salvatorequagliariello/ecommerce-dashboard/assets/109867120/6fb255c9-7e27-47ca-aa11-e20e0af3bdad)
+> The Orders section, where payments and orders are listed, and the main Dashboard of the CMS.
 
+<br>
+
+![Nuovo progetto](https://github.com/salvatorequagliariello/ecommerce-dashboard/assets/109867120/6fb255c9-7e27-47ca-aa11-e20e0af3bdad)
+> The Products section and the edit page for an already created product.
 
