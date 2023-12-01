@@ -30,10 +30,11 @@ Built using mainly React and NextJS, this user-friendly and responsive CMS will 
 
 The authentication for the web-app relies on [Clerk](https://clerk.com/), a powerful and secure authentication and user management system, while its UI is the combined result of [TailwindCSS](https://tailwindcss.com/) and [shadcn/ui](https://ui.shadcn.com/) a collection of components built on top of Radix UI and Tailwind CSS. The entire web-app has been designed to specifically manage wristwatch E-commerces, but can be easily refactored to be able to manage any kind of E-shop.
 
-The CMS dashboard let the user easily navigate and manage sales, payments, billboards, different categories and products, from a desktop, a laptop or even a smartphone. The user can create one or more stores to manage and then switch from one to another just by using a cascade menu. Then it's possible to create new products simply uploading a photo, a description and then choosing which category it belongs to. All the billboards and products images are uploaded on [Cloudinary](https://cloudinary.com/), and all the stores data is organized in a MySQL database hosted on [Planetscale](https://planetscale.com/) and managed through [Prisma](https://www.prisma.io/).
+The CMS dashboard let the user easily navigate and manage sales, payments, billboards, different categories and products, from a desktop, a laptop or even a smartphone. The user can create one or more stores to manage and then switch from one to another just by using a cascade menu. Then it's possible to create new products simply uploading a photo, a description and then choosing which category it belongs to. All the billboards and products images are uploaded on [Cloudinary](https://cloudinary.com/), and all the stores data is organized in a MySQL database hosted on [Planetscale](https://planetscale.com/) and managed through [Prisma](https://www.prisma.io/). 
 
-It's possible 
+All the payments and sales details are provided by the Stripe API.
 
 <br>
 
 ## Features
+- 
