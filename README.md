@@ -7,9 +7,9 @@ A complete and fully functional CMS with a user-friendly interface that will all
 
 ## Table of Contents  
 -  [Tech Stack](https://github.com/salvatorequagliariello/ecommerce-dashboard#tech-stack)
--  [Overview](https://github.com/salvatorequagliariello/lotto-game#more-about-the-project-floppy_disk)
--  [Features](https://github.com/salvatorequagliariello/lotto-game#more-about-the-project-floppy_disk)
--  [Screenshots](https://github.com/salvatorequagliariello/lotto-game#more-about-the-project-floppy_disk)
+-  [Overview](https://github.com/salvatorequagliariello/ecommerce-dashboard/blob/main/README.md#overview)
+-  [Features](https://github.com/salvatorequagliariello/ecommerce-dashboard/blob/main/README.md#features)
+-  [Screenshots](https://github.com/salvatorequagliariello/ecommerce-dashboard/blob/main/README.md#screenshots)
 
 <br>
 
